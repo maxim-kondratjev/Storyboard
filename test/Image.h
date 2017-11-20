@@ -14,5 +14,5 @@ public:
 	Image(SDL_Renderer* _pRenderer, SDL_Texture* _texture, int posX, int posY, int width, int height);
 	void Update();
 	void Draw();
-
+	SDL_Point getPos();
 };

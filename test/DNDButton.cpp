@@ -1,6 +1,7 @@
 #include "DNDButton.h"
 
-DNDButton::DNDButton(SDL_Renderer* _mainRenderer, SDL_Texture* _texture, int posX, int posY, int width, int height) : Button(_mainRenderer, _texture, posX, posY, width, height), isDragged(false)
+DNDButton::DNDButton(SDL_Renderer* _mainRenderer, SDL_Texture* _texture, int posX, int posY, int width, int height) 
+	: Button(_mainRenderer, _texture, posX, posY, width, height), isDragged(false)
 {
 }
 

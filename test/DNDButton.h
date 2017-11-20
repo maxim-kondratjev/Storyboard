@@ -7,7 +7,6 @@
 class DNDButton : public Button, public IMovable
 {
 private:
-	int offX, offY;
 	int isDragged;
 public:
 	DNDButton(SDL_Renderer* _mainRenderer, SDL_Texture* _texture, int posX = 0, int posY = 0, int width = 100, int height = 100);

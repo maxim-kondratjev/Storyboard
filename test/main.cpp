@@ -2,7 +2,8 @@
 #include "Image.h"
 #include "Button.h"
 #include "DNDButton.h"
-
+#include "Arrow.h"
+//аргументы по умолчанию выставляются в прототипе!!!
 #include <iostream>
 #include <SDL.h>
 #include <vector>
@@ -20,6 +21,7 @@ struct mainWindow
 	std::vector<DNDButton*> draggableButtons;
 	std::vector<Button*> buttons;
 	std::vector<Image*> images;
+	std::vector<Arrow*> arrows;
 	//////////////
 
 }mainWindow;
@@ -28,7 +30,7 @@ void SetUpMainWindow()
 {
 
 	
-	mainWindow.userDefinedEvent = SDL_RegisterEvents(1); //������ ����������� ������������� ������� � ��������� ��� ���, ����� ����� ������������ � �������.
+	mainWindow.userDefinedEvent = SDL_RegisterEvents(1); 
 
 	mainWindow._renderer = SDL_GetRenderer(mainWindow._window);
 	mainWindow._rm = new ResourceManager(mainWindow._renderer);
@@ -36,10 +38,12 @@ void SetUpMainWindow()
 	mainWindow.buttons.push_back(new Button(mainWindow._renderer, mainWindow._rm->LoadImage("Button.bmp"), 0, 0, 100, 100));
 	mainWindow.images.push_back(new Image(mainWindow._renderer, mainWindow._rm->LoadImage("TheSun.bmp"), 300, 300, 300, 300));
 	mainWindow.draggableButtons.push_back(new DNDButton(mainWindow._renderer, mainWindow._rm->LoadImage("Button.bmp"), 100, 0, 100, 100));
+	mainWindow.arrows.push_back(new Arrow(mainWindow._renderer, mainWindow._rm->LoadImage("arrow.bmp"), 400, 0, 30, 30));
 
 	mainWindow.elements.push_back((UIObject*)(mainWindow.buttons[0]));
 	mainWindow.elements.push_back((UIObject*)(mainWindow.images[0]));
 	mainWindow.elements.push_back((UIObject*)(mainWindow.draggableButtons[0]));
+	mainWindow.elements.push_back((UIObject*)(mainWindow.arrows[0]));
 
 	mainWindow.buttons[0]
 ->AddPressedImage(mainWindow._rm->LoadImage("Button_pressed.bmp"));
@@ -56,11 +60,8 @@ void RedrawMainWindow()
 		i->Draw();
 	}
 
-	SDL_SetRenderDrawColor(mainWindow._renderer, 0x00, 0xFF, 0x00, 255);
 
 	int mouseX = 0, mouseY = 0;
-	SDL_GetMouseState(&mouseX, &mouseY);
-	SDL_RenderDrawLine(mainWindow._renderer, 0, 0, mouseX, mouseY);
 
 	SDL_RenderPresent(mainWindow._renderer);
 	
@@ -110,6 +111,9 @@ int main(int argc, char* argv[])
 				for (auto &i : mainWindow.draggableButtons)
 					i->CheckIfClicked();
 
+				for (auto &i : mainWindow.arrows)
+					i->CheckIfClicked();
+
 				for (auto &i : mainWindow.elements)
 				{
 					i->Update();
@@ -125,6 +129,10 @@ int main(int argc, char* argv[])
 				{
 					i->Update();
 				}
+				for (auto &i : mainWindow.arrows)
+				{
+					i->Update();
+				}
 				
 				RedrawMainWindow();
 			}
@@ -135,6 +143,9 @@ int main(int argc, char* argv[])
 					i->Unclick();
 
 				for (auto &i : mainWindow.draggableButtons)
+					i->Unclick();
+
+				for (auto &i : mainWindow.arrows)
 					i->Unclick();
 
 				for (auto &i : mainWindow.elements)

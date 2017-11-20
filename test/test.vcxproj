@@ -156,6 +156,7 @@
     <ClCompile Include="Arrow.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="DNDButton.cpp" />
+    <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="Arrow.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="DNDButton.h" />
+    <ClInclude Include="Geometry.h" />
     <ClInclude Include="IMovable.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="UIObject.h" />

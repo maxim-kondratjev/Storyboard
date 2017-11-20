@@ -26,3 +26,11 @@ void Image::Update()
 {
 
 }
+
+SDL_Point Image::getPos()
+{
+	SDL_Point a;
+	a.x = Pos.x;
+	a.y = Pos.y;
+	return  a;
+}

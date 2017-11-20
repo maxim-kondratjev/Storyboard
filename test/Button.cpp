@@ -5,7 +5,6 @@ Button::Button(SDL_Renderer* _mainRenderer, SDL_Texture* _textur, int posX, int 
 	_textureVariants[0] = _texture;
 
 	myCode = -1;
-
 }
 int Button::code = 0;
 
