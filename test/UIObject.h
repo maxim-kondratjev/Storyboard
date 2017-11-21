@@ -3,9 +3,11 @@
 
 class UIObject abstract
 {
-private:
+protected:
+	SDL_Rect Pos;
 	bool IsShown;
 public:
+	virtual SDL_Rect getRect() = 0;
 	virtual void Update() = 0;
 	virtual void Draw() = 0;
 };

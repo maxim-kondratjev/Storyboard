@@ -1,6 +1,7 @@
 #include "Button.h"
 
-Button::Button(SDL_Renderer* _mainRenderer, SDL_Texture* _textur, int posX, int posY, int width, int height) : Image(_mainRenderer, _textur, posX, posY, width, height), isClicked(false)
+Button::Button(SDL_Renderer* _mainRenderer, SDL_Texture* _textur, int posX, int posY, int width, int height) 
+	: Image(_mainRenderer, _textur, posX, posY, width, height), isClicked(false)
 {
 	_textureVariants[0] = _texture;
 

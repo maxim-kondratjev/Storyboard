@@ -7,8 +7,8 @@ Image::Image(SDL_Renderer* _pRender, SDL_Texture* texture, int posX, int posY, i
 	{
 		_mainRenderer = _pRender;
 	}
-	Pos.x = posX; Pos.y = posY; Pos.w = width; Pos.h = height;
 	_texture = texture;
+	Pos.x = posX; Pos.y = posY; Pos.w = width; Pos.h = height;
 }
 
 void Image::Draw()
@@ -27,10 +27,9 @@ void Image::Update()
 
 }
 
-SDL_Point Image::getPos()
+SDL_Rect Image::getRect()
 {
-	SDL_Point a;
-	a.x = Pos.x;
-	a.y = Pos.y;
+	SDL_Rect a;
+	a = Pos;
 	return  a;
 }

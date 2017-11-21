@@ -159,6 +159,7 @@
     <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mainWindow.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -167,6 +168,7 @@
     <ClInclude Include="DNDButton.h" />
     <ClInclude Include="Geometry.h" />
     <ClInclude Include="IMovable.h" />
+    <ClInclude Include="mainWindow.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="UIObject.h" />
     <ClInclude Include="Image.h" />

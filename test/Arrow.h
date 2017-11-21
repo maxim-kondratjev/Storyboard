@@ -5,9 +5,14 @@
 class Arrow : public DNDButton
 {
 private:
-	Image* src;
-	Image* dst;
+	bool isLinked;
+	UIObject* src;
+	UIObject* dst;
+	void LinkArrow(UIObject* dst);
 public:
-	Arrow(SDL_Renderer* mainRender, SDL_Texture* arrowHead,  int posX, int posxY, int width=50, int height=50);
+	Arrow(SDL_Renderer* mainRender, SDL_Texture* arrowHead, int posX, 
+		int posxY, int width=50, int height=50, UIObject* src=NULL, bool isLinked=false);
 	void Draw();
+	void Unclick();
+	bool CheckIfClicked();
 };
