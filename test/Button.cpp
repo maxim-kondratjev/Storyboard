@@ -14,6 +14,7 @@ void Button::Update() //Обработчик событий для кнопки.
 
 	if (mainFunction == "one" && isClicked == true)
 	{
+		std::cout << "hello!\n";
 		SDL_Event tempEvent;
 		tempEvent.type = myEventType;
 		tempEvent.user.code = myCode;
