@@ -9,12 +9,13 @@ Button::Button(SDL_Renderer* _mainRenderer, SDL_Texture* _textur, int posX, int 
 }
 int Button::code = 0;
 
-void Button::Update() //Обработчик событий для кнопки.
+void Button::Update() //ГЋГЎГ°Г ГЎГ®ГІГ·ГЁГЄ Г±Г®ГЎГ»ГІГЁГ© Г¤Г«Гї ГЄГ­Г®ГЇГЄГЁ.
 {
 
 	if (mainFunction == "one" && isClicked == true)
 	{
 		std::cout << "test2\n";
+		std::cout << "test3\n";
 		SDL_Event tempEvent;
 		tempEvent.type = myEventType;
 		tempEvent.user.code = myCode;
@@ -61,9 +62,9 @@ int Button::GetCode()
 
 void Button::setMainFunction(std::string mainFunctions, Uint32 eventType)
 {
-	mainFunction = mainFunctions;  //каждая функциональная кнопка уникальна
-	myEventType = eventType;       //у всех кнопок один тип посылаемого в обработчик события
-	myCode = code++;               //каждая функциональная кнопка отличается от другой, даже несущей такой же функцию, своим кодом
+	mainFunction = mainFunctions;  //ГЄГ Г¦Г¤Г Гї ГґГіГ­ГЄГ¶ГЁГ®Г­Г Г«ГјГ­Г Гї ГЄГ­Г®ГЇГЄГ  ГіГ­ГЁГЄГ Г«ГјГ­Г 
+	myEventType = eventType;       //Гі ГўГ±ГҐГµ ГЄГ­Г®ГЇГ®ГЄ Г®Г¤ГЁГ­ ГІГЁГЇ ГЇГ®Г±Г»Г«Г ГҐГ¬Г®ГЈГ® Гў Г®ГЎГ°Г ГЎГ®ГІГ·ГЁГЄ Г±Г®ГЎГ»ГІГЁГї
+	myCode = code++;               //ГЄГ Г¦Г¤Г Гї ГґГіГ­ГЄГ¶ГЁГ®Г­Г Г«ГјГ­Г Гї ГЄГ­Г®ГЇГЄГ  Г®ГІГ«ГЁГ·Г ГҐГІГ±Гї Г®ГІ Г¤Г°ГіГЈГ®Г©, Г¤Г Г¦ГҐ Г­ГҐГ±ГіГ№ГҐГ© ГІГ ГЄГ®Г© Г¦ГҐ ГґГіГ­ГЄГ¶ГЁГѕ, Г±ГўГ®ГЁГ¬ ГЄГ®Г¤Г®Г¬
 }
 
 void Button::Unclick()
